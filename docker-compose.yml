@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: devlogger-db
+    restart: always
+    environment:
+      POSTGRES_DB: devlogger
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
